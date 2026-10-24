@@ -1,0 +1,2 @@
+import test from'node:test';import assert from'node:assert/strict';import{markdown}from'./index.mjs';import{plan,demo}from'../restorelab-planner/index.mjs';
+test('runbook contains ordered prerequisites and provenance limits',()=>{let s=markdown(plan(demo));assert.ok(s.indexOf('Recovery record executable')<s.indexOf('Durable recovery record'));assert.match(s,/no executable transaction/);assert.match(s,/SIMULATE_RESTORE/);assert.match(s,/Inventory SHA-256/)});
